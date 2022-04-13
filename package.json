@@ -1,0 +1,7 @@
+{
+  "name": "fastify-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Gaétan Zanella <gaetan.zanella@fabernovel.com>",
+  "license": "MIT"
+}
