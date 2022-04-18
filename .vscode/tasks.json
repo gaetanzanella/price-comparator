@@ -4,7 +4,23 @@
     {
       "label": "Build",
       "type": "shell",
-      "command": "yarn run build"
+      "command": "yarn run build",
+      "dependsOn": "Format changed files"
+    },
+    {
+      "label": "Format changed files",
+      "type": "shell",
+      "command": "yarn run format-quick"
+    },
+    {
+      "label": "Format all files",
+      "type": "shell",
+      "command": "yarn run format-all"
+    },
+    {
+      "label": "Lint",
+      "type": "shell",
+      "command": "yarn run lint"
     }
   ]
 }
