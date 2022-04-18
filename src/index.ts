@@ -1,20 +1,13 @@
-
-import Fastify from 'fastify'
-
-const fastify = Fastify({
-  logger: true
-})
-
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
-})
+import { APIApp } from "./api/app"
 
 const start = async () => {
+  const app = new APIApp({}, { port: 3000 })
   try {
-    await fastify.listen(3000)
-  } catch (err) {
-    fastify.log.error(err)
+    await app.run()
+  } catch (error) {
+    console.error(error)
     process.exit(1)
   }
 }
+
 start()
