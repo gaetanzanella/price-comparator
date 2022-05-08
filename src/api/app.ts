@@ -17,6 +17,6 @@ export class APIApp {
       logger: true,
     })
     fastify.register(StoreRoutes, { prefix: "/stores" })
-    await fastify.listen(this.config.port)
+    await fastify.listen(this.config.port, "0.0.0.0")
   }
 }

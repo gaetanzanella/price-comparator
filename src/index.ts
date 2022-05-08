@@ -1,7 +1,7 @@
 import { APIApp } from "./api/app"
 
 const start = async () => {
-  const app = new APIApp({}, { port: 3000 })
+  const app = new APIApp({}, { port: 8000 })
   try {
     await app.run()
   } catch (error) {
