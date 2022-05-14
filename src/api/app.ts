@@ -1,7 +1,8 @@
 import Fastify from "fastify"
-import { APIAppConfig } from "./config"
-import { APIAppDependencies } from "./dependencies"
-import StoreRoutes from "./stores/routes"
+import { APIAppConfig } from "api/config"
+import { APIAppDependencies } from "api/dependencies"
+import { getStoreRoutes } from "api/store/routes"
+import { buildMainPlugin } from "./shared/plugin/shared-plugin"
 
 export class APIApp {
   readonly dependencies: APIAppDependencies
@@ -13,10 +14,8 @@ export class APIApp {
   }
 
   async run() {
-    const fastify = Fastify({
-      logger: true,
-    })
-    fastify.register(StoreRoutes, { prefix: "/stores" })
-    await fastify.listen(this.config.port, "0.0.0.0")
+    const main = buildMainPlugin(this.dependencies)
+    main.register(getStoreRoutes(this.dependencies), { prefix: "/stores" })
+    await main.listen(this.config.port, "0.0.0.0")
   }
 }

@@ -1,12 +1,12 @@
 {
-  "name": "fastify-test",
+  "name": "price-comparator-api",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Gaétan Zanella <gaetan.zanella@fabernovel.com>",
   "license": "MIT",
   "scripts": {
     "build": "rimraf ./dist && tsc",
-    "start": "node dist/index.js",
+    "start": "NODE_PATH=dist node dist/index.js",
     "package": "yarn install && yarn build",
     "format-quick": "yarn pretty-quick",
     "format-all": "yarn prettier --write .",
@@ -29,7 +29,7 @@
     "typescript": "^4.6.3"
   },
   "dependencies": {
-    "@sinclair/typebox": "^0.23.4",
+    "@sinclair/typebox": "^0.23.5",
     "fastify": "^3.28.0",
     "fastify-swagger": "^5.1.1",
     "rimraf": "^3.0.2"

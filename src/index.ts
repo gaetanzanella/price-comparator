@@ -1,7 +1,9 @@
-import { APIApp } from "./api/app"
+import { buildAPIAppDependencies } from "di/api-app-dependencies-factory"
+import { APIApp } from "api/app"
 
 const start = async () => {
-  const app = new APIApp({}, { port: 8000 })
+  const dependencies = buildAPIAppDependencies()
+  const app = new APIApp(dependencies, { port: 8000 })
   try {
     await app.run()
   } catch (error) {
