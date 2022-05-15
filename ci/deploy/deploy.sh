@@ -1,8 +1,6 @@
 
-echoStart() { echo "# 🚀 $1"; }
-echoSuccess() { echo "# ✅ $1"; }
-die() { echo "$2" >&2; exit "$1"; }
-try() { ( set -x; "$@"; ); ret="$?"; (( "$ret" == 0 )) || die 3 "Error while calling '$*' ($ret)"; }
+source "$(dirname "$0")/../shared/utils.sh"
+
 renderTemplate() { try envsubst < "$1.tpl" > "$1"; }
 
 if [ -z "$AWS_ACCESS_KEY_ID" ] || [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
