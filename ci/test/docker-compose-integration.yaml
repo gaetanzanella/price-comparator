@@ -4,12 +4,12 @@ services:
   app:
     image: node:14.18.3
     container_name: price-comparator-app-integration
-    restart: on-failure
     ports:
       - 8000:8000
-    environment:
-      PORT: 8000
     working_dir: /app/dist
-    command: node index.js
+    environment:
+      - PORT: 8000
+      - NODE_PATH=./
+    command: "node index.js"
     volumes:
       - ../../:/app:ro

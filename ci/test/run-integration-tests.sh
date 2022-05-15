@@ -9,12 +9,16 @@ echoStart "Preparing app..."
 try yarn build
 try docker-compose --file "$FOLDER/docker-compose-integration.yaml" up -d
 
-echoEnd "Preparing app done"
+echoSuccess "Preparing app done"
 
 # TEST
 
+echoStart "Testing..."
+
 cd "$FOLDER/../.."
 try yarn run test
+
+echoSuccess "Testing done"
 
 # TEARDOWN
 
@@ -22,4 +26,4 @@ echoStart "Tearing down..."
 
 try docker-compose --file "$FOLDER/docker-compose-integration.yaml" down -v
 
-echoEnd "Teardown done"
+echoSuccess "Teardown done"
