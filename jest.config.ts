@@ -4,7 +4,6 @@
  */
 
 export default {
-
   clearMocks: true,
 
   collectCoverage: false,
@@ -12,11 +11,8 @@ export default {
   // coveragePathIgnorePatterns: ["/node_modules/"],
   // coverageProvider: "v8",
 
-  preset: 'ts-jest',
+  preset: "ts-jest",
   roots: ["<rootDir>"],
-  moduleFileExtensions: [
-    "ts",
-    "js"
-  ],
-  testMatch: ["<rootDir>/test/integrations/*"]
+  moduleFileExtensions: ["ts", "js"],
+  testMatch: ["<rootDir>/test/integrations/*"],
 }

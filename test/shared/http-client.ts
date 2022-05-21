@@ -1,8 +1,6 @@
-
 import got, { Got } from "got"
 
 export class HTTPClient {
-
   #got: Got
 
   constructor(prefix: string) {

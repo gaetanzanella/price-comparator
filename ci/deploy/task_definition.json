@@ -5,10 +5,8 @@
       "image": "895242073208.dkr.ecr.eu-central-1.amazonaws.com/price-comparator:1.0.0",
       "cpu": 1,
       "memory": 300,
-      "secrets": [
-      ],
-      "environment": [
-      ],
+      "secrets": [],
+      "environment": [],
       "portMappings": [
         {
           "hostPort": 80,
@@ -19,7 +17,7 @@
       "essential": true
     }
   ],
-  "executionRoleArn":"arn:aws:iam::895242073208:role/price-comparator_ecs",
-  "taskRoleArn":"arn:aws:iam::895242073208:role/price-comparator_ecs",
+  "executionRoleArn": "arn:aws:iam::895242073208:role/price-comparator_ecs",
+  "taskRoleArn": "arn:aws:iam::895242073208:role/price-comparator_ecs",
   "family": "price-comparator_family"
 }

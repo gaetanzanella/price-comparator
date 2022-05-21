@@ -17,7 +17,7 @@ export function getStoreRoutes(dependencies: APIAppDependencies): FastifyPluginA
         },
       },
       async (req, rep) => {
-        rep.sendResponse(controller.getStores())
+        await rep.sendResponse(controller.getStores())
       }
     )
   }

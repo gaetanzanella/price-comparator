@@ -18,9 +18,12 @@ export class StoreController {
     try {
       const stores = await this.#getStoresInteractor.execute()
       const mapper = new RESTStoreListMapper()
-      return { state: "Successed", content: mapper.map(stores) }
+      return {
+        state: "success",
+        content: mapper.map(stores),
+      }
     } catch {
-      return {} as RESTFailureResponse
+      return { state: "failure" }
     }
   }
 }

@@ -6,8 +6,8 @@ export class StoreRepositoryImplementation implements StoreRepository {
     return Promise.resolve([
       {
         id: { id: "1" },
-        name: "Hello"
-      }
+        name: "Hello",
+      },
     ])
   }
 }
