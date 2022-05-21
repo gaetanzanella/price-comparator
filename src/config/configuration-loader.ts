@@ -30,6 +30,16 @@ export class ConfigurationLoader {
       logger: {
         level: this.parseString(env, "LOGGER_LEVEL"),
       },
+      database: {
+        client: this.parseString(env, "DB_CLIENT"),
+        connection: {
+          host: this.parseString(env, "DB_CONNECTION_HOST"),
+          port: this.parseInt(env, "DB_CONNECTION_PORT"),
+          user: this.parseString(env, "DB_CONNECTION_USER"),
+          password: this.parseString(env, "DB_CONNECTION_PASSWORD"),
+          database: this.parseString(env, "DB_CONNECTION_DATABASE"),
+        },
+      },
     }
   }
 

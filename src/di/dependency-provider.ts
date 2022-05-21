@@ -1,5 +1,5 @@
 import { APIAppDependencies } from "api/dependencies"
-import { ModuleLauncher } from "modules/module-launcher"
+import { ModuleLauncher, ModuleLaunchResult } from "modules/module-launcher"
 import { GetStoresInteractorImplementation } from "core/interactor/store/get-stores-interactor-implementation"
 import { StoreRepositoryImplementation } from "data/repository/store/store-repository-implementation"
 import { LoggerModule } from "modules/logger-module"
@@ -9,7 +9,7 @@ import { ConfigurationModule } from "modules/configuration-module"
 export class DependencyProvider {
   constructor() {}
 
-  buildApiAppDependencies(): APIAppDependencies {
+  buildApiAppDependencies(result: ModuleLaunchResult): APIAppDependencies {
     const storeRepository = new StoreRepositoryImplementation()
     return {
       getStoresInteractor: () => {

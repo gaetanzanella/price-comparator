@@ -1,10 +1,12 @@
 import { Configuration } from "config/configuration"
+import { DatabaseInstance } from "data/database/database-instance"
 import { ConfigurationModule } from "./configuration-module"
 import { DatabaseModule } from "./database-module"
 import { LoggerModule } from "./logger-module"
 
 export type ModuleLaunchResult = {
   config: Configuration
+  database: DatabaseInstance
 }
 
 export class ModuleLauncher {
@@ -21,9 +23,10 @@ export class ModuleLauncher {
   async launch(): Promise<ModuleLaunchResult> {
     const config = this.#configuration.start()
     await this.#logger.start(config)
-    await this.#database.start()
+    const database = await this.#database.start(config)
     return {
       config: config,
+      database: database,
     }
   }
 }

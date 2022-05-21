@@ -7,4 +7,14 @@ export type Configuration = {
   logger: {
     level: string
   }
+  database: {
+    client: string
+    connection: {
+      host: string
+      port: number
+      user: string
+      password: string
+      database: string
+    }
+  }
 }
