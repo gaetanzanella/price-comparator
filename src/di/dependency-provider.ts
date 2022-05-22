@@ -10,7 +10,7 @@ export class DependencyProvider {
   constructor() {}
 
   buildApiAppDependencies(result: ModuleLaunchResult): APIAppDependencies {
-    const storeRepository = new StoreRepositoryImplementation()
+    const storeRepository = new StoreRepositoryImplementation(result.database)
     return {
       getStoresInteractor: () => {
         return new GetStoresInteractorImplementation(storeRepository)

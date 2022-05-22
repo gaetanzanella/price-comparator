@@ -4,7 +4,7 @@ import { RESTStoreListType, RESTStoreType } from "api/store/model/rest-store"
 export class RESTStoreMapper {
   map(store: Store): RESTStoreType {
     return {
-      id: store.id.id,
+      id: store.id.id.toString(),
       name: store.name,
     }
   }

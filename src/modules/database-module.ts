@@ -6,7 +6,7 @@ export class DatabaseModule {
 
   async start(config: Configuration): Promise<DatabaseInstance> {
     const instance = new DatabaseInstance(config.database)
-    instance.applyMigrations()
+    await instance.applyMigrations()
     return instance
   }
 }

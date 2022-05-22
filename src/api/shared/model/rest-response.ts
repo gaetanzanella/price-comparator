@@ -1,5 +1,6 @@
 export type RESTFailureResponse = {
   state: "failure"
+  error: unknown
 }
 
 export type RESTSuccessResponse<Schema> = {

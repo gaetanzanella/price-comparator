@@ -22,8 +22,8 @@ export class StoreController {
         state: "success",
         content: mapper.map(stores),
       }
-    } catch {
-      return { state: "failure" }
+    } catch (error) {
+      return { state: "failure", error: error }
     }
   }
 }

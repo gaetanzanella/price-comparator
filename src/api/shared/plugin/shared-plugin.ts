@@ -15,15 +15,11 @@ export function buildMainPlugin(dependencies: APIAppDependencies): FastifyInstan
     logger: true,
   })
   fastify.decorateReply("sendResponse", async function (promise: Promise<RESTResponse<any>>) {
-    try {
-      const response = await promise
-      if (isSuccess(response)) {
-        this.status(200).send(response.content)
-      } else {
-        this.status(404)
-      }
-    } catch {
-      this.status(500).send()
+    const response = await promise
+    if (isSuccess(response)) {
+      this.status(200).send(response.content)
+    } else {
+      throw response.error
     }
   })
   return fastify

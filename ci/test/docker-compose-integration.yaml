@@ -8,8 +8,20 @@ services:
       - 8000:8000
     working_dir: /app/dist
     environment:
-      - PORT: 8000
-      - NODE_PATH=./
+      NODE_PATH: ./
     command: "node index.js"
     volumes:
       - ../../:/app:ro
+  db:
+    image: mysql:5.7
+    container_name: proxima-mysql
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./.docker/mysql:/var/lib/mysql
+    environment:
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: price-comparator
+    ports:
+      - "3306:3306"
