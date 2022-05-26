@@ -17,6 +17,7 @@ export class DatabaseInstance {
   readonly knex: Knex
 
   constructor(config: DatabaseConfiguration) {
+    logger.info(`Logging to DB ${config.connection.host}`)
     this.knex = knex({
       client: config.client,
       connection: config.connection,

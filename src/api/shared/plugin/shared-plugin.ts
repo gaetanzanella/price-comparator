@@ -17,7 +17,11 @@ export function buildMainPlugin(dependencies: APIAppDependencies): FastifyInstan
   fastify.decorateReply("sendResponse", async function (promise: Promise<RESTResponse<any>>) {
     const response = await promise
     if (isSuccess(response)) {
-      this.status(200).send(response.content)
+      if (response.content === null || response.content === undefined) {
+        this.status(204)
+      } else {
+        this.status(200).send(response.content)
+      }
     } else {
       throw response.error
     }

@@ -14,4 +14,8 @@ export class HTTPClient {
   get(path: string): Promise<any> {
     return this.#got.get(path)
   }
+
+  post(path: string, options: any): Promise<any> {
+    return this.#got.post(path, options)
+  }
 }

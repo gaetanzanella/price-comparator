@@ -5,9 +5,9 @@ export async function up(knex: Knex): Promise<void> {
     `
     CREATE TABLE store
     (
-      uuid BINARY(16) NOT NULL,
+      id VARCHAR(255) NOT NULL,
       name VARCHAR(255) NOT NULL,
-      PRIMARY KEY(uuid)
+      PRIMARY KEY(id)
     );
     `
   )

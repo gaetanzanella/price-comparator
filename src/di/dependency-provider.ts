@@ -5,6 +5,7 @@ import { StoreRepositoryImplementation } from "data/repository/store/store-repos
 import { LoggerModule } from "modules/logger-module"
 import { DatabaseModule } from "modules/database-module"
 import { ConfigurationModule } from "modules/configuration-module"
+import { CreateStoreInteractorImplementation } from "core/interactor/store/create-store-interactor-implementation"
 
 export class DependencyProvider {
   constructor() {}
@@ -14,6 +15,9 @@ export class DependencyProvider {
     return {
       getStoresInteractor: () => {
         return new GetStoresInteractorImplementation(storeRepository)
+      },
+      createStoreInteractor: () => {
+        return new CreateStoreInteractorImplementation(storeRepository)
       },
     }
   }

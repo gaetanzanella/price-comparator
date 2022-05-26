@@ -1,14 +1,20 @@
 import { Static, Type } from "@sinclair/typebox"
 
-export const RESTStore = Type.Object({
+export const RESTStoreSchema = Type.Object({
   id: Type.String(),
   name: Type.String(),
 })
 
-export type RESTStoreType = Static<typeof RESTStore>
+export type RESTStore = Static<typeof RESTStoreSchema>
 
-export const RESTStoreList = Type.Object({
-  stores: Type.Array(RESTStore),
+export const RESTStoreListSchema = Type.Object({
+  stores: Type.Array(RESTStoreSchema),
 })
 
-export type RESTStoreListType = Static<typeof RESTStoreList>
+export type RESTStoreList = Static<typeof RESTStoreListSchema>
+
+export const RESTStoreFormSchema = Type.Object({
+  name: Type.String(),
+})
+
+export type RESTStoreForm = Static<typeof RESTStoreFormSchema>
